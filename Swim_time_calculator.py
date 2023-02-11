@@ -1,7 +1,21 @@
+import os
+import tkinter as tk
+from tkinter import Text, filedialog
 
-
-
-def calculateTime(pace, num):
+def calculateTime(hour,min,sec, num):
+    if(hour.get() == ""):
+        hour = "00"
+    else:
+        hour = hour.get()
+    if(min.get() == ""):
+        min = "00"
+    else:
+        min = min.get()
+    if(sec.get() == ""):
+        sec = "00"
+    else:
+        sec = sec.get()
+    pace = min + ":" + sec
     time = 0
     min = 0
     sec = 0
