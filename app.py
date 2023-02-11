@@ -51,9 +51,7 @@ colon2.place(x=85,y=10)
 
 series = []
 def calculator():
-    time = min.get() + ":" + sec.get()
-    print(time)
-    serie = calc(time, num.get())
+    serie = calc(hour,min,sec, num.get())
     series.append(serie)
     label = tk.Label(answer, text=serie, padx=0.1, bg="white")
     label.pack(padx=0.1,pady=0.1)
