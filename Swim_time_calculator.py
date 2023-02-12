@@ -29,16 +29,3 @@ def calculateTime(hour,min,sec, num):
         hour = "0" + str(hour)
     time = str(hour) + ":" + str(min) + ":" + str(sec)
     return time
-
-    
-
-
-
-
-
-
-
-
-
-
-
