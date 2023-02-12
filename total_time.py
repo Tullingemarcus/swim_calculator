@@ -1,6 +1,3 @@
-
-
-
 def addTime(time1, time2):
     if time1 == "":
         time1 = "00:00:00"
