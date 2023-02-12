@@ -52,39 +52,57 @@ colon1.place(x=45,y=10)
 colon2 = tk.Label(frame,text=":",bg="white")
 colon2.place(x=85,y=10)
 
-
+calcLabel = []
 series = []
 def calculator():
+    global calcLabel
+
     serie = calc(hour.get(),min.get(),sec.get(), num.get())
     series.append(serie)
-    label = tk.Label(answer, text=serie, padx=0.1, bg="white")
-    label.pack(padx=0.1,pady=0.1)
+    calcLabel.append(tk.Label(answer, text=serie, padx=0.1, bg="white"))
+    calcLabel[-1].pack(padx=0.1,pady=0.1)
 
 calculate = tk.Button(root,text="calculate",padx=10, 
                     pady=5,fg="white",bg="#263d42", command=calculator)
 calculate.pack()
 
-
+totLabel = []
 temp = "00:00:00"
 def total_time():
     global temp
     global series
+    global totLabel
+    global calcLabel
     for i in range(0, len(series)):
         temp = addTime(series[i],temp)
     series = []
     series.append(temp)
     tot = temp
     temp = "00:00:00"
-    label = tk.Label(answer, text=tot, padx=0.1, bg="white")
-    label.pack(padx=0.1,pady=0.1)
+    for i in range(0, len(calcLabel)):
+        calcLabel[i].destroy()
+    calcLabel = []
+    totLabel.append(tk.Label(answer, text=tot, padx=0.1, bg="white"))
+    totLabel[-1].pack(padx=0.1,pady=0.1)
 
 total = tk.Button(root,text="calculate total time",padx=10, 
                     pady=5,fg="white",bg="#263d42", command=total_time)
 total.pack()
 
-def delete():
+def clear():
+    global calcLabel
+    global totLabel
     global series
     series = []
-    text.delete("1.0", END)
+    for i in range(0, len(calcLabel)):
+        calcLabel[i].destroy()
+    calcLabel = []
+    for i in range(0, len(totLabel)):
+        totLabel[i].destroy()
+    
+    totLabel = []
+clear = tk.Button(root,text="clear",padx=10, 
+                    pady=5,fg="white",bg="#263d42", command=clear)
+clear.pack()
 
 root.mainloop()
