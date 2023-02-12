@@ -2,8 +2,11 @@ import os
 import tkinter as tk
 from tkinter import Text, filedialog
 
-import Swim_time_calculator
-from Swim_time_calculator import calculateTime as calc
+import swim_time_calculator
+from swim_time_calculator import calculateTime as calc
+
+import total_time as tottime
+from total_time import addTime
 
 root = tk.Tk()
 
@@ -59,5 +62,19 @@ def calculator():
 calculate = tk.Button(root,text="calculate",padx=10, 
                     pady=5,fg="white",bg="#263d42", command=calculator)
 calculate.pack()
+
+
+temp = "00:00:00"
+def total_time():
+    global temp
+    for i in range(0, len(series)):
+        temp = addTime(series[i],temp)
+    tot = temp
+    label = tk.Label(answer, text=tot, padx=0.1, bg="white")
+    label.pack(padx=0.1,pady=0.1)
+
+total = tk.Button(root,text="calculate total time",padx=10, 
+                    pady=5,fg="white",bg="#263d42", command=total_time)
+total.pack()
 
 root.mainloop()
