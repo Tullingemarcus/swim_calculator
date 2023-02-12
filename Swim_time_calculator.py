@@ -3,39 +3,31 @@ import tkinter as tk
 from tkinter import Text, filedialog
 
 def calculateTime(hour,min,sec, num):
-    if(hour.get() == ""):
+    if(hour == ""):
         hour = "00"
-    else:
-        hour = hour.get()
-    if(min.get() == ""):
+    if(min == ""):
         min = "00"
-    else:
-        min = min.get()
-    if(sec.get() == ""):
+    if(sec == ""):
         sec = "00"
-    else:
-        sec = sec.get()
-    pace = min + ":" + sec
-    time = 0
-    min = 0
-    sec = 0
-    
-    paceString = ""
-    for letter in pace:
-        if letter in ":":
-            min = num * int(paceString)
-            paceString = ""
-        else:
-            paceString += letter
-    sec = num * int(paceString)
-    newsec = int(sec / 60)
-    min = min + newsec
-    if min >= 60:
-        newmin = min % 60
-        if newmin <= 10:
-            newmin = "0" + str(newmin)
-        min = str(int(min/60)) + ":" + str(newmin)
-    time = str(min) + ":" + str(sec % 60) 
+
+    sec = num * int(sec)
+    min = num * int(min)
+    hour = num * int(hour)
+
+    secTemp = int(sec / 60)
+    min = min + secTemp
+    minTemp = int(min / 60)
+    hour = hour + minTemp
+
+    sec = sec % 60
+    min = min % 60
+    if sec < 10:
+        sec = "0" + str(sec)
+    if min < 10:
+        min = "0" + str(min)
+    if hour < 10:
+        hour = "0" + str(hour)
+    time = str(hour) + ":" + str(min) + ":" + str(sec)
     return time
 
     
