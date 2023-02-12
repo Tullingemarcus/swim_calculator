@@ -1,6 +1,6 @@
 import os
 import tkinter as tk
-from tkinter import Text, filedialog
+from tkinter import Text, filedialog, PhotoImage
 
 import swim_time_calculator
 from swim_time_calculator import calculateTime as calc
@@ -9,6 +9,9 @@ import total_time as tottime
 from total_time import addTime
 
 root = tk.Tk()
+root.title("Swim calculator")
+img = PhotoImage(file="swim_calculator/stock_image.png")
+root.iconphoto(False,img)
 
 canvas = tk.Canvas(root,height=100,width=500,bg="#263d42")
 canvas.pack()
