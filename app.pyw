@@ -68,14 +68,23 @@ calculate.pack()
 temp = "00:00:00"
 def total_time():
     global temp
+    global series
     for i in range(0, len(series)):
         temp = addTime(series[i],temp)
+    series = []
+    series.append(temp)
     tot = temp
+    temp = "00:00:00"
     label = tk.Label(answer, text=tot, padx=0.1, bg="white")
     label.pack(padx=0.1,pady=0.1)
 
 total = tk.Button(root,text="calculate total time",padx=10, 
                     pady=5,fg="white",bg="#263d42", command=total_time)
 total.pack()
+
+def delete():
+    global series
+    series = []
+    text.delete("1.0", END)
 
 root.mainloop()
