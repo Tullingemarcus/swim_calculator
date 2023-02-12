@@ -4,9 +4,7 @@ from tkinter import Text, filedialog, PhotoImage
 
 import swim_time_calculator
 from swim_time_calculator import calculateTime as calc
-
-import total_time as tottime
-from total_time import addTime
+from swim_time_calculator import addTime
 
 root = tk.Tk()
 root.title("Swim calculator")
