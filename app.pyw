@@ -8,7 +8,7 @@ from swim_time_calculator import addTime
 
 root = tk.Tk()
 root.title("Swim calculator")
-img = PhotoImage(file="swim_calculator/stock_image.png")
+img = PhotoImage(file="stock_image.png")
 root.iconphoto(False,img)
 
 canvas = tk.Canvas(root,height=100,width=500,bg="#263d42")
